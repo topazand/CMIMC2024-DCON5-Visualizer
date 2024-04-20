@@ -17,7 +17,7 @@ HEX_SIZE = 35    # Size of each hexagon
 WIDTH, HEIGHT = 500, 500  # Window dimensions
 BACKGROUND_COLOR = (0, 255, 255)  # Aqua
 FPS = 30
-players = ["white", "black", "red"]  # List of players
+colors = [(0, 0, 0), (255, 255, 255), (255, 0, 0)]  # List of players
 
 res = {}
 step = 0
@@ -127,10 +127,10 @@ while running:
             pygame.draw.circle(screen, (255, 0, 0), (int(xc), int(yc)), 15)  # Red piece
 
     # Draw the longest path counters
-    font = pygame.font.Font(None, 18)
+    font = pygame.font.Font(None, 24)
     scores = res["game"][step][2]
     for idx, player in enumerate(players):
-        text = font.render(f"{player.capitalize()}: {scores[idx]}", True, (0, 0, 0))
+        text = font.render(f"{player.capitalize()}: {scores[idx]}", True, colors[idx])
         screen.blit(text, (WIDTH - 200, 20 + idx * 40))
 
     # Coordinate?
